@@ -1,0 +1,61 @@
+<div class="pos-f-t shadow">
+    <div class="collapse shadow" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4 text-center"> اضافة منتج جديد</h5>
+
+            <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+                <input type="hidden" name="id" #id="ngModel" [(ngModel)]="items.formData.id">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <input type="date" name="date" #date="ngModel"        value="2019-07-27" 
+                        [(ngModel)]="items.formData.date"  class="form-control text-center" placeholder=" إنتهاء الصلاحية  " required >
+                        <div *ngIf="date.invalid && date.touched" class="validation-error  text-center"> إنتهاء الصلاحية !!</div>
+                    </div>
+ 
+                    <div class="form-group col-4">
+                        <input name="price" #price="ngModel" [(ngModel)]="items.formData.price" class="form-control text-center" placeholder="السعر" required>
+                        <div *ngIf="price.invalid && price.touched" class="validation-error  text-center"> السعر !! </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <input name="itemName" #itemName="ngModel" [(ngModel)]="items.formData.itemName" class="form-control text-center" placeholder="اسم المنتج" required>
+                        <div *ngIf="itemName.invalid && itemName.touched" class="validation-error text-center"> اسم المنتج !!</div>
+
+                    </div>
+                    <div class="form-group col-1">
+                        <input name="itemId" #itemId="ngModel" [(ngModel)]="items.formData.itemId" class="form-control text-center" placeholder="م" required>
+                        <div *ngIf="itemId.invalid && itemId.touched" class="validation-error  text-center">مسلسل المنتج !!</div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-4  offset-1">
+                        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-success">أضافة </button>
+                    </div>
+
+                    <div class="form-group col-4 offset-1">
+                        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">تعديل </button>
+                    </div>
+
+                </div>
+
+
+
+            </form>
+
+
+
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark navbar-right">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span> <strong>بيانات الاصناف</strong></span>
+    </button>
+
+
+    </nav>
+
+
+
+</div>
+
+<app-list-item></app-list-item>

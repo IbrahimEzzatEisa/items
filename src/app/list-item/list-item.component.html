@@ -1,0 +1,38 @@
+<div>
+    <input [(ngModel)]="searchText" (input)="Search()" class="form-control   text-center" type="search" placeholder="بحث" aria-label="Search">
+
+</div>
+<table class="table table-hover" >
+    <thead>
+
+        <th></th>
+        <th>أنتهاء الصلاحية</th>
+        <th>السعر</th>
+        <th>اسم المنتج</th>
+        <th>م</th>
+
+
+
+
+
+    </thead>
+    <tbody  class="scrollit">
+
+
+        <tr *ngFor="let item of list">
+            <td>
+                <a class="btn text-danger" (click)="onDelete(item.id)"> <i class="fa fa-trash"></i></a>
+            </td>
+
+
+
+            <td (click)="onEdit(item)">{{item.date}}</td>
+            <td (click)="onEdit(item)">{{item.price}}</td>
+            <td (click)="onEdit(item)"> {{item.itemName}} </td>
+            <td (click)="onEdit(item)"> {{item.itemId}} </td>
+
+
+
+        </tr>
+    </tbody>
+</table>
